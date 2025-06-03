@@ -1,0 +1,9 @@
+import os
+from dotenv import load_dotenv
+import yagmail
+
+load_dotenv()
+
+yag = yagmail.SMTP(os.getenv("EMAIL_USER"), os.getenv("EMAIL_PASS"))
+
+yag.send(to=os.getenv("EMAIL_RECIPIENT"), subject="Test", contents="Hello World")
