@@ -45,7 +45,7 @@ def recieve_test_email():
     return send_email(data["to"], data["subject"], data["content"])
 
 
-@app.post("/sms")
+@server.post("/sms")
 def sms_reply():
     incoming_msg = request.form['Body']
     from_number = request.form['From']
