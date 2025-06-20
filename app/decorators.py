@@ -24,8 +24,8 @@ def validate_twilio_request(f):
             request.headers.get('X-TWILIO-SIGNATURE', ''))
 
 
-        # Continue processing the request if it's valid, return a 403 error if
-        # it's not
+        # Continue processing the request if it's valid (or if DEBUG is True)
+        # and return a 403 error if it's not
         if request_valid or current_app.debug:
             return f(*args, **kwargs)
         else:
