@@ -11,8 +11,8 @@ load_dotenv()
 server = Flask(__name__)
 
 # Initialize Yagmail SMTP client once
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
+EMAIL_USER = os.environ["EMAIL_USER"]
+EMAIL_PASS = os.environ["EMAIL_PASS"]
 EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT")
 
 yag = yagmail.SMTP(EMAIL_USER, EMAIL_PASS)
@@ -46,6 +46,7 @@ def recieve_test_email():
 
 
 @server.post("/sms")
+@validate_twilio_request
 def sms_reply():
     incoming_msg = request.form['Body']
     from_number = request.form['From']
