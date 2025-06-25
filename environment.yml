@@ -6,7 +6,7 @@ dependencies:
   - python=3.12
   - python-dotenv
   - flask
-  - flask-smorest
+  - email-validator
   - pip
   - pip:
       - yagmail
