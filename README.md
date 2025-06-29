@@ -3,9 +3,9 @@
 As is now: text a fixed phone number, to send an email. Or leave a voicemail, get transciprion in a fixed email inbox.
 
 text:
-<recipient email>
-<subject>
-<multiline body>
+{recipient email}
+{subject}
+{multiline body}
 
 SETUP:
 
@@ -37,8 +37,13 @@ SETUP:
 	-use the URL from the Render dashboard
 	-Phone Numbers > Manage > Active Numbers > Configure > Messaging Configuration > A message comes in
 		Webhook, POST, URL: https://<your project>.onrender.com/sms
+
+6. Configure Call webhook with Twilio
+	-use the URL from the Render dashboard
+	-Phone Numbers > Manage > Active Numbers > Configure > Voice Configuration > A call comes in
+		Webhook, POST, URL: https://<your project>.onrender.com/record
 	
-6. Try it out! 
+7. Try it out! 
 	-Send a text to the twilio bought phone number above 
 	-Leave a voicemail to the twilio bought phone number above 
 	-check gmail inbox
