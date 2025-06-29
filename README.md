@@ -1,6 +1,11 @@
 # email-notifier
 
-As is now: text a fixed phone number, to send from a fixed email address, to a fixed email address, the contents of the text
+As is now: text a fixed phone number, to send an email. Or leave a voicemail, get transciprion in a fixed email inbox.
+
+text:
+<recipient email>
+<subject>
+<multiline body>
 
 SETUP:
 
@@ -10,6 +15,8 @@ SETUP:
 
 2. setup twilio account: https://login.twilio.com/u/signup
 	-free trial ok
+	-grab twilio account SID and Twilio Authorization token from the console
+		Admin > Account Management > Keys and Credentials > API Keys and tokens
 	-buy new number with SMS capabilities (Phone Numbers > Manage > Buy a number)
 
 3. use template.env to create your own .env file
@@ -26,11 +33,12 @@ SETUP:
 
 	Add .env as secret file
 
-5. Configure webhook with twilio
-	-us the URL from the Render dashboard
+5. Configure SMS webhook with Twilio
+	-use the URL from the Render dashboard
 	-Phone Numbers > Manage > Active Numbers > Configure > Messaging Configuration > A message comes in
 		Webhook, POST, URL: https://<your project>.onrender.com/sms
-
+	
 6. Try it out! 
-	-Send a text to the twilio bought above
+	-Send a text to the twilio bought phone number above 
+	-Leave a voicemail to the twilio bought phone number above 
 	-check gmail inbox

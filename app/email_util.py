@@ -6,12 +6,13 @@ from email_validator import validate_email, EmailNotValidError
 # Initialize Yagmail SMTP client once
 yag = yagmail.SMTP(EMAIL_USER, EMAIL_PASS)
 
-def send_email(to, subject, content):
+def send_email(to, ph_from, subject, content):
+    from_text = f"\nSent from: {ph_from}\n\nhttps://github.com/c-oneill/email-notifier"
     try:
         yag.send(
             to=to,
             subject=subject,
-            contents=content
+            contents=content + from_text
         )
     except Exception as e:
         printf("Email failed: {e}") # get context specific infor here for logger
