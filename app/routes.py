@@ -71,7 +71,7 @@ def record_call():
     response.say('Hello. Please leave a message after the beep.')
 
     # Use <Record> to record the caller's message, set to transcribe
-    callbackurl = url_for('transcription_callback', _external=True)
+    callbackurl = url_for('transcription_response', _external=True)
     response.record(transcribe="true", transcribeCallback=f"{callbackurl}")
 
     # End the call with <Hangup>
