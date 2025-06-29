@@ -1,6 +1,7 @@
 from app import server
 from flask import request, current_app, url_for
 from twilio.twiml.messaging_response import MessagingResponse
+from twilio.twiml.voice_response import Record, VoiceResponse, Say
 from twilio.rest import Client
 import app.email_util
 from .decorators import validate_twilio_request
@@ -42,7 +43,7 @@ def sms_response():
         to, subject, contents = app.email_util.parse_message(incoming_msg)
         app.email_util.send_email(to, from_number, subject, contents)
         
-        print(f"Email sent successfully. TO: {to}, FROM: {number_from}, SUBJECT: {subject}") 
+        print(f"Email sent successfully. TO: {to}, FROM: {from_number}, SUBJECT: {subject}") 
         resp.message(f"Email sent: {subject}")
         
     except ValueError as ve:
